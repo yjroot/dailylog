@@ -2,6 +2,7 @@ from pytest import fixture, yield_fixture
 from sqlalchemy import create_engine
 
 from dailylog.db import Base, Session
+from dailylog.entity import Diary
 from dailylog.app import app
 
 
@@ -13,6 +14,14 @@ def get_engine():
     engine = create_engine(url)
     app.config['DATABASE_ENGINE'] = engine
     return engine
+
+
+@fixture
+def f_diary(f_session):
+    diary = Diary(subject='today', content='helloworld')
+    with f_session.begin():
+        f_session.add(diary)
+    return diary
 
 
 @fixture

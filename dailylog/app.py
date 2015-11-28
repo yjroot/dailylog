@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, request
 from werkzeug.local import LocalProxy
 
@@ -25,3 +27,13 @@ def create_diary():
     with session.begin():
         session.add(diary)
     return '', 201
+
+
+@app.route('/<int:diary_id>', methods=['GET'])
+def read_diary(diary_id):
+    diary = session.query(Diary).filter(Diary.id == diary_id).first()
+    if diary is None:
+        return 'No diary', 404
+
+    return json.dumps({'subject': diary.subject,
+                       'content': diary.content})
