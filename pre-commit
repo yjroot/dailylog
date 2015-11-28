@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+echo "Running pre-cmmit"
+
+echo "Flake8 ..."
+flake8 dailylog tests
+
+echo "import-order ..."
+#import-order

@@ -1,0 +1,8 @@
+flask == 0.10.1
+sqlalchemy >= 1.0.0, < 1.1
+alembic >= 0.7.4, < 0.9.0
+pytest >= 2.7.0, < 2.8.0
+sphinx == 1.2.3
+click
+import-order
+flake8
