@@ -76,4 +76,4 @@ def get_session(engine: Engine=None) -> SqlalchemySession:
 
 
 Base = declarative_base()
-Session = sessionmaker()
+Session = sessionmaker(autocommit=True)

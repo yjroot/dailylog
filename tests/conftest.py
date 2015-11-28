@@ -2,7 +2,7 @@ from pytest import fixture, yield_fixture
 from sqlalchemy import create_engine
 
 from dailylog.db import Base, Session
-from dailylog import app
+from dailylog.app import app
 
 
 TEST_DATABASE_URL = 'sqlite:///test.db'

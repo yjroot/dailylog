@@ -1,10 +1,10 @@
 #!/bin/sh
 set -e
 
-echo "Running pre-cmmit"
+echo "Running pre-commit"
 
 echo "Flake8 ..."
 flake8 dailylog tests
 
-echo "import-order ..."
-#import-order
+#echo "import-order ..."
+#import-order --only-file ./dailylog
