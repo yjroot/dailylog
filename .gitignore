@@ -20,3 +20,4 @@ build/
 dist/
 
 soran/web/static/css
+.coverage

@@ -2,7 +2,11 @@ language: python
 python:
 - "3.4"
 - "3.5"
-install: "pip install -r requirements.txt"
+install:
+- pip install -r requirements.txt
+- pip install python-coveralls pytest-cov
 script:
-- py.test
+- py.test --cov dailylog --cov-report term-missing
 - flake8 dailylog
+after_success:
+- coveralls
